@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ere klasse uitslagen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+
+<body bgcolor="#000000">
+  <div ng-app="myApp" ng-controller="myCtrl">
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Ereklasse.nl</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">RC Waterland</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Senioren 1</a>
+          <a class="dropdown-item" href="#">Senioren 2</a>
+          <a class="dropdown-item" href="#">Senioren 3</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+
+      <form class="form-inline" action="/action_page.php">
+	    <input class="form-control mr-sm-2" type="text" placeholder="Search" ng-model="sport">
+      </form>
+
+      <li><a class="nav-link" href="#"><i class="fas fa-user"></i> Sign Up</a></li>
+      <li><a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid" bgcolor="#000000">
+
+    <div class="row" bgcolor="#000000">
+      <div ng-repeat="x in clubs" ng-show= "'{{x.name}}'.indexOf(sport) > -1 || sport==null" class="col-sm-4">
+        <a href="{{x.pic}}.html"><img src="pics/{{x.pic}}.png" class="img-fluid" /></a>
+      </div>
+	</div>
+
+  </div>
+  
+</div>
+
+
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    $scope.clubs = [
+    	{name:"RC Waterland", pic:"rcwaterland"},
+    	{name:"RC Hilversum", pic:"rchilversum"},
+    	{name:"RC Castricum", pic:"rccastricum"}
+    ]
+});
+</script> 
+
+</body>
+</html>
